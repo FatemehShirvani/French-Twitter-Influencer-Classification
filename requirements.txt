@@ -1,0 +1,16 @@
+accelerate
+datasets
+emoji
+evaluate
+matplotlib
+nltk
+numpy
+pandas
+peft
+scikit-learn
+seaborn
+sentencepiece
+torch
+tqdm
+transformers
+xgboost

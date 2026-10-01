@@ -1,0 +1,39 @@
+# Local environments and editor state
+.venv/
+.vscode/
+.idea/
+.claude/
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+
+# Raw competition data (large and not redistributed)
+*.jsonl
+data/
+influencers-or-observers-predicting-social-roles/
+influencers-or-observers-predicting-social-roles.zip
+
+# Generated features, checkpoints, and model artifacts
+*.npy
+*.pkl
+*.joblib
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+checkpoints/
+models/
+catboost_info/
+
+# Generated predictions
+submission*.csv
+*_submission.csv
+best_submission*.csv
+improved_submission.csv
+logistic_regression.csv
+dummy.csv
+
+# OS files
+.DS_Store
+Thumbs.db
+
