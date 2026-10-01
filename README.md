@@ -2,11 +2,14 @@
 
 This project classifies French Twitter users as **observers** or **influencers**
 from tweet content, profile metadata, and interaction signals. It was developed for
-the CSC_51054_EP 2025 machine-learning challenge at Institut Polytechnique de Paris.
+the **Machine Learning and Deep Learning course at École Polytechnique, 2025–2026**,
+instructed by [Davide Buscaldi](https://sites.google.com/site/davidebuscaldi/),
+[Johannes Lutzeyer](https://johanneslutzeyer.com/), and
+[Michalis Vazirgiannis](https://www.lix.polytechnique.fr/Labo/Michalis.Vazirgiannis/).
 
 The final system combines a LoRA-fine-tuned CamemBERT model, engineered behavioral
-features, user-level aggregation, and a regularized XGBoost classifier. It reached
-**84.2% accuracy on the competition test set**.
+features, user-level aggregation, and a regularized XGBoost classifier. It reached a
+final accuracy of **0.857 (85.7%)**.
 
 ## Why this problem is difficult
 
@@ -179,7 +182,8 @@ feature space.
 | Approach | Outcome |
 |---|---:|
 | Fine-tuned text embeddings alone | 84.0% test accuracy |
-| Metadata + LoRA score + text embeddings | 84.2% test accuracy |
+| Tweet-level metadata + LoRA score + text embeddings | 84.2% test accuracy |
+| **Final user-level aggregated model** | **85.7% accuracy** |
 | Random-walk graph embeddings | 53.7% accuracy |
 | Graph Convolutional Network | 53.9% accuracy |
 
