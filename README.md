@@ -22,23 +22,6 @@ solution therefore combines three views of each user:
 - how they behave: activity, engagement, and profile metadata;
 - how their tweets relate: quoted-user and graph-derived signals.
 
-## Final pipeline
-
-```mermaid
-flowchart LR
-    A[Raw JSONL tweets] --> B[Cleaning and normalization]
-    B --> C1[Behavioral and profile features]
-    B --> C2[CamemBERT + LoRA]
-    C2 --> D1[CLS embeddings]
-    C2 --> D2[Class-1 scores]
-    C1 --> E[Group tweets by user]
-    D1 --> E
-    D2 --> E
-    E --> F[Mean / sum / max aggregation]
-    F --> G[Regularized XGBoost]
-    G --> H[Observer or Influencer]
-```
-
 ## 1. Data cleaning and preprocessing
 
 The raw dataset is nested JSONL containing tweet text, user profiles, and quoted
@@ -144,9 +127,8 @@ than direct user-level metadata.
 
 ## 7. User-level aggregation
 
-The ground-truth label belongs to a user, not an individual tweet. Users were linked
-by extracting an identifier from `profile_banner_url`; `challenge_id` was used as a
-fallback for roughly 18% of users without that field.
+Because the ground-truth label describes an account rather than an individual tweet,
+the final model aggregates the available tweet-level evidence before classification.
 
 For each user, the pipeline constructs one feature vector containing:
 
